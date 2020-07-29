@@ -1,0 +1,49 @@
+.warning-box {
+  padding: 15px;
+  display: flex;
+  background-color: #ccc;
+  @include radius(4px);
+  position: relative;
+  margin-bottom: 25px;
+  @include transition;
+  overflow: hidden;
+  &::before {
+    content: "";
+    height: 3px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #ffffff86;
+    animation: loading-warning 6s linear infinite;
+  }
+  .svg-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 15px;
+    @include size(20px);
+    fill: $white;
+    cursor: pointer;
+  }
+  &.-error {
+    background-color: $brand-danger;
+  }
+  &.-success {
+    background-color: $brand-success;
+  }
+  &.-danger {
+    background-color: $brand-warning;
+  }
+  &.-info {
+    background-color: $brand-info;
+  }
+  &.-fading {
+    opacity: 0;
+    margin-bottom: 0px;
+    padding: 0px;
+  }
+  &.-gone {
+    display: none;
+  }
+}

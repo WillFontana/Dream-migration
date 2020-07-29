@@ -1,0 +1,80 @@
+.check-box {
+  background-color: $label-color;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 15px 40px;
+  margin-right: 20px;
+  cursor: pointer;
+  .input-check {
+    display: none;
+  }
+  .switch-svg {
+    .svg-icon {
+      position: absolute;
+      left: 10px;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+      @include size(20px);
+      fill: $black-50;
+      &.-solid {
+        fill: $brand-success;
+        display: none;
+      }
+    }
+  }
+  .input-check:checked {
+    ~ .switch-svg {
+      .svg-icon {
+        &.-solid {
+          display: block;
+        }
+        &.-outline {
+          display: none;
+        }
+      }
+    }
+    ~ .text {
+      color: $primary-color;
+    }
+  }
+  .text {
+    color: $black-50;
+  }
+  &:hover {
+    border-color: $primary-color;
+  }
+  &.-error {
+    border-color: $brand-danger;
+    .switch-svg {
+      .svg-icon {
+        fill: $brand-danger;
+      }
+    }
+  }
+}
+.input-check {
+  display: none;
+}
+.switch-whats {
+  .svg-icon {
+    @include transition;
+    &.-solid {
+      opacity: 0;
+    }
+  }
+}
+.input-check:checked {
+  ~ .switch-whats {
+    .svg-icon {
+      @include transition;
+      &.-solid {
+        opacity: 1;
+      }
+      &.-outline {
+        opacity: 0;
+      }
+    }
+  }
+}

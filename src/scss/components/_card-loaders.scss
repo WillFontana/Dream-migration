@@ -1,0 +1,46 @@
+.card-load {
+  @include size(100%, 600px);
+  border: 1px solid $black-10;
+  animation: loadingCardContainer 2s ease-in-out forwards;
+
+  .load-image {
+    @include size(100%, 250px);
+    background-color: $black-10;
+    animation: loadingCard 2s ease-in-out infinite;
+  }
+  .load-title {
+    @include size(auto, 20px);
+    margin: 20px;
+    background-color: $black-10;
+    animation: loadingCard 2s ease-in-out infinite;
+  }
+  .load-date {
+    @include size(20%, 10px);
+    margin: 10px 20px;
+    background-color: $black-10;
+    animation: loadingCard 2s ease-in-out infinite;
+  }
+  .load-descript {
+    @include transition(0.6s);
+    @include size(auto, 15px);
+    margin: 20px 20px;
+    background-color: $black-10;
+    position: relative;
+    animation: loadingCard 2s ease-in-out infinite;
+    &::before,
+    &::after {
+      @include transition(0.6s);
+      content: "";
+      @include size(100%, 15px);
+      background-color: $black-10;
+      position: absolute;
+      bottom: -35px;
+    }
+    &:after {
+      bottom: -70px;
+    }
+    + .load-descript {
+      margin-top: 90px;
+    }
+  }
+}

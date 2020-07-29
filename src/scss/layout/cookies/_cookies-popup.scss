@@ -1,0 +1,71 @@
+.cookie-popup {
+  @include size(100%);
+  @include absolute-all;
+  @include centerFlex;
+  @include transition(0.4s);
+  position: fixed;
+  z-index: 20;
+  &:before {
+    content: "";
+    @include size(100%);
+    @include absolute-all;
+    background-color: rgba($black, 0.6);
+  }
+  .pop-container {
+    @include size(60%, auto);
+    @include radius(20px);
+    @include transition(0.4s);
+    @include customscrollbarInvisible;
+    background-color: $white;
+    transition-delay: 0.4s;
+    min-height: 240px;
+    min-width: 60%;
+    position: relative;
+    max-height: 80%;
+    overflow: auto;
+    .pop-header {
+      @include size(100%, 90px);
+      @include centerFlex-y;
+      padding: 0 30px;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid $primary-color;
+      background-color: $white;
+      z-index: 4;
+      .svg-icon {
+        @include size(30px);
+        fill: $black-60;
+        &.-pop-closer {
+          position: absolute;
+          right: 30px;
+          cursor: pointer;
+        }
+      }
+    }
+    .pop-body {
+      padding: 30px;
+    }
+    .pop-footer {
+      @include size(100%, auto);
+      padding: 10px 20px 20px;
+      &.-bottom {
+        position: sticky;
+        bottom: 0;
+        background-color: $white;
+        z-index: 4;
+      }
+    }
+  }
+  &:not(.-show) {
+    @include size(0%);
+    opacity: 0;
+    z-index: -1;
+    &::before {
+      opacity: 0;
+    }
+    .pop-container {
+      opacity: 0;
+      transition-delay: 0s;
+    }
+  }
+}

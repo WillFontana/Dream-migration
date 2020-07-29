@@ -1,0 +1,19 @@
+body {
+  @include customScroll(5px, 60px, $primary-color, transparent);
+  background-color: $body-bg;
+  &.-overlayed {
+    height: 100%;
+    overflow: hidden;
+  }
+  a,
+  button {
+    outline: none !important;
+  }
+}
+
+.App{
+  .svg-icon {
+    @include size(400px);
+    fill: green;
+  }
+}

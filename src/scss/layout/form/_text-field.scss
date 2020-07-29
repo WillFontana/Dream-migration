@@ -1,0 +1,135 @@
+.text-box {
+  position: relative;
+  margin-bottom: 25px;
+  @include media-max(xl) {
+    margin: 0px;
+  }
+  .input {
+    margin: 10px 0px;
+    outline: none;
+    background: $label-color;
+    z-index: 2;
+    border: 2px solid $primary-color;
+    @include radius(3px);
+    padding: 15px;
+    width: 100%;
+    font-size: 16px;
+    color: $white;
+    font-family: $font-base;
+    @include media-max(xl) {
+      margin: 0px 0px 10px;
+    }
+  }
+  .label {
+    top: 2px;
+    bottom: 2px;
+    margin: auto;
+    padding: 0px 6px;
+    left: 15px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    @include transition(0.1s);
+    &.-whats {
+      position: relative;
+      left: unset;
+      right: unset;
+      top: unset;
+      bottom: unset;
+      justify-content: flex-start;
+      align-items: center;
+      .svg-icon {
+        fill: $primary-color;
+        margin: 0;
+        position: unset;
+        display: block;
+        @include size(18px);
+      }
+      .switch-whats {
+        .svg-icon {
+          position: absolute;
+          right: 15px;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          @include size(20px);
+        }
+      }
+      .text {
+        margin-left: 10px;
+        text-transform: unset;
+      }
+    }
+
+    .text {
+      z-index: 1;
+      text-transform: uppercase;
+    }
+  }
+  .svg-icon {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    @include size(24px);
+    fill: $primary-color;
+  }
+  .input:focus {
+    border-color: $primary-color-lighten;
+  }
+  .input:focus + .label {
+    top: -31px;
+    left: -5px;
+    padding: 0px 6px;
+    bottom: unset;
+    margin: unset;
+    &::before {
+      height: 7px;
+    }
+    @include media-max(md) {
+    }
+    .text {
+      font-size: 12px;
+      z-index: 1;
+      font-weight: 700;
+      text-transform: unset;
+    }
+  }
+  .input {
+    &.-used {
+      &:focus {
+        border-color: $primary-color-lighten;
+      }
+      border-color: $primary-color-darken;
+      + .label {
+        top: -31px;
+        left: -5px;
+        padding: 0px 6px;
+        bottom: unset;
+        margin: unset;
+        .text {
+          font-size: 12px;
+          z-index: 1;
+          font-weight: 700;
+        }
+      }
+    }
+    &.-error {
+      border-color: $brand-danger;
+      &:focus {
+        border-color: $brand-danger;
+      }
+      + .label {
+        .text {
+          color: $brand-danger;
+        }
+      }
+      ~ .svg-icon {
+        display: block;
+      }
+    }
+  }
+}

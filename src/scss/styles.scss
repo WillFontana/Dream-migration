@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+// settings
+@import "./settings/variables";
+
+// tools
+@import "./tools/functions";
+@import "./tools/mixins";
+
+// global
+@import "./global/resets";
+@import "./global/scaffolding";
+
+// animations
+@import "./animations/keyframes";
+
+// components
+@import "./components/card-loaders";
+@import "./components/container-block";
+@import "./components/content-all";
+@import "./components/divider-line";
+@import "./components/grid";
+@import "./components/grid-layout";
+@import "./components/icon-sprite";
+@import "./components/image-fluid";
+@import "./components/svg-icon";
+@import "./components/typography";
+
+// helpers
+@import "./helpers/utilities";
+@import "./helpers/spacing";
+@import "./helpers/flexbox";
+@import "./helpers/trumps";
+
+//// Layout
+// body
+@import "./layout/body/main-content";
+
+// buttons
+@import "./layout/buttons/main-button";
+
+// footer
+@import "./layout/footer/footer";
+
+// form
+@import "./layout/form/check-box";
+@import "./layout/form/text-field";
+
+// header
+@import "./layout/header/header";
+@import "./layout/header/menu-burguer";
+@import "./layout/header/menu-mobile";
+@import "./layout/header/mobile-overlay";
+@import "./layout/header/nav";
+
+// modais
+@import "./layout/modais/main-modal";
+
+// warnigbox
+@import "./layout/warningbox/warning-box";
