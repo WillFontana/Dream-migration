@@ -1,8 +1,7 @@
 .profile-card {
-  @include size(25%, 100%);
-  @include radius(6px);
+  @include size(20%, 100%);
   @include customScroll(5px, 6px, $primary-color, transparent);
-  border: 2px solid $black-20;
+  border: 1px solid $black-20;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -12,6 +11,7 @@
     @include centerFlex-y;
     flex-direction: column;
     padding: 20px;
+    border-bottom: 1px solid $black-20;
     .image-fluid {
       @include size(150px);
       @include radius(150px);
@@ -25,13 +25,36 @@
     }
   }
   .user-descript {
-    padding: 0 20px 20px;
+    padding: 20px 20px;
     p {
       padding-bottom: 10px;
     }
   }
   .outline-link {
     margin: 20px;
-    margin-right:auto;
+    margin-right: auto;
+  }
+}
+
+.userlist {
+  @include size(20%, 100%);
+  @include customScroll(0px, 0px, $primary-color, transparent);
+  border: 1px solid $black-20;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  .list-item {
+    @include size(100%, auto);
+    @include centerFlex-y;
+    border-bottom: 1px solid $black-20;
+    padding: 10px 20px;
+    .list-image {
+      @include size(40px);
+      @include radius(40px);
+      overflow: hidden;
+      + p {
+        margin-left: 10px;
+      }
+    }
   }
 }
