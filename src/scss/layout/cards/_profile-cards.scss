@@ -13,16 +13,32 @@
     flex-direction: column;
     padding: 20px;
     border-bottom: 1px solid $black-20;
+    .gender-box {
+      @include size(100%, auto);
+      @include centerFlex-y;
+      justify-content: space-evenly;
+      .svg-icon {
+        @include size(18px);
+        fill: $black-40;
+        &.-active {
+          fill: $secondary-color;
+        }
+      }
+    }
     .image-fluid {
       @include size(150px);
       @include radius(150px);
       overflow: hidden;
-      + .user-name {
+      border: 1px solid $secondary-color;
+      + .user-main-info {
         margin-top: 20px;
       }
     }
-    .user-name {
+    .user-main-info {
       text-align: center;
+    }
+    .user-name {
+      font-size: 24px;
     }
   }
   .user-descript {
@@ -39,11 +55,13 @@
 
 .userlist {
   @include size(20%, 100%);
-  @include customScroll(0px, 0px, $primary-color, transparent);
+  @include customScroll(2px, 0px, $primary-color, transparent);
   border: 1px solid $black-20;
   overflow: scroll;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  position: relative;
   .list-item {
     @include size(100%, auto);
     @include centerFlex-y;
@@ -52,6 +70,7 @@
     .list-image {
       @include size(40px);
       @include radius(40px);
+      border: 1px solid $secondary-color;
       overflow: hidden;
       + p {
         margin-left: 10px;
