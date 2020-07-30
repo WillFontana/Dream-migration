@@ -48,9 +48,9 @@ function Userslist() {
           </p>
         </div></>}
       {users.map(user => (
-        <Link key={user.cdusuario} to={`/usuarios/${user.cdusuario}`} className="list-item">
+        <Link key={user.cdusuario} onClick={e => e.target.classList.add = "-active"} to={`/usuarios/${user.cdusuario}`} className="list-item">
 
-          <img src={user.txfoto1} onError={(e) => user.txsexo === "masculino" ? e.target.src = MaleDummy : e.target.src =FemaleDummy} alt={user.txnome} className="list-image" />
+          <img src={user.txfoto1} onError={(e) => user.txsexo === "masculino" ? e.target.src = MaleDummy : e.target.src = FemaleDummy} alt={user.txnome} className="list-image" />
 
           {/* <img src={user.txfoto1 || user.txsexo === "masculino" ? MaleDummy : FemaleDummy} alt={user.txnome} className="list-image" />
 

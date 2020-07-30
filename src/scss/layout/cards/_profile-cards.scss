@@ -65,6 +65,7 @@
   .list-item {
     @include size(100%, auto);
     @include centerFlex-y;
+    @include transition;
     border-bottom: 1px solid $black-20;
     padding: 10px 20px;
     .list-image {
@@ -75,6 +76,12 @@
       + p {
         margin-left: 10px;
       }
+    }
+    &:hover {
+      background-color: rgba($secondary-color, 0.2);
+    }
+    &.-active {
+      background-color: rgba($secondary-color, 0.4);
     }
   }
 }
