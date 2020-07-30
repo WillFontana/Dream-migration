@@ -1,0 +1,5 @@
+.user-calendar {
+  @include size(60%, 100%);
+  margin: 0 40px;
+  border: 1px solid $black-20;
+}

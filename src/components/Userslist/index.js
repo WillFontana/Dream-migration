@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { MdHourglassEmpty } from 'react-icons/md';
+import { AiOutlineWarning } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
-// import { Container } from './styles';
 
 function Userslist() {
 
-  const [load, setLoad] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const [error, setError] = useState(false);
 
   // Remover após a api
   const [user1, setUser1] = useState('');
@@ -21,16 +24,30 @@ function Userslist() {
         response2 => {
           setUser2(response2.data);
         }
-      ).then(() => setLoad(false))
+      ).then(() => { setLoading(false); setError(false) })
       .catch(err => {
         console.log(err);
-        setLoad(false);
+        setLoading(false);
+        setError(true);
       })
   }, []);
 
   return (
     <div className="userlist">
-      {load && <span>Carregando usuarios</span>}
+      {loading &&
+        <><div className="main-card-loader">
+          <MdHourglassEmpty className="svg-icon" />
+          <p className="loader-text">
+            Carregando
+            </p>
+        </div></>}
+      {error &&
+        <><div className="main-card-error">
+          <AiOutlineWarning className="svg-icon" />
+          <p className="text">
+            Não foi possível encontrar o usuário
+          </p>
+        </div></>}
       <Link to={`/usuarios/willfontana`} className="list-item">
         <img src={user1.avatar_url} alt="" className="list-image" />
         <p className="typo-body-2 typo-formal typo-color-dark-secondary">
@@ -38,7 +55,7 @@ function Userslist() {
         </p>
       </Link>
       <Link to={`/usuarios/rafabruno`} className="list-item">
-      <img src={user2.avatar_url} alt="" className="list-image" />
+        <img src={user2.avatar_url} alt="" className="list-image" />
         <p className="typo-body-2 typo-formal typo-color-dark-secondary">
           {user2.name}
         </p>

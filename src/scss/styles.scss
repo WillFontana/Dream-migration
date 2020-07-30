@@ -42,7 +42,11 @@
 @import "./layout/buttons/outline-link";
 
 // cards
+@import "./layout/cards/main-card-error";
 @import "./layout/cards/profile-cards";
+
+// calendar
+@import "./layout/calendar/user-calendar";
 
 // footer
 @import "./layout/footer/footer";
@@ -57,6 +61,9 @@
 @import "./layout/header/menu-mobile";
 @import "./layout/header/mobile-overlay";
 @import "./layout/header/nav";
+
+// loaders
+@import "./layout/loader/main-card-loader";
 
 // modais
 @import "./layout/modais/main-modal";
