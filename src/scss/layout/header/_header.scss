@@ -1,3 +1,10 @@
-.header{
-  
+.main-header {
+  @include size(100%, 90px);
+  @include centerFlex;
+  background-color: rgba($primary-color, 0.4);
+  position: fixed;
+  top: 0;
+  .main-logo {
+    @include size(40px);
+  }
 }

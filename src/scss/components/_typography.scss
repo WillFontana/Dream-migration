@@ -24,6 +24,6 @@
 
 @each $class, $styles in $typo-styles {
   .typo-#{$styles} {
-    font-weight: $styles;
+    font-style: $styles;
   }
 }

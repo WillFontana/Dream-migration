@@ -1,6 +1,8 @@
 body {
   @include customScroll(5px, 60px, $primary-color, transparent);
   background-color: $body-bg;
+  height: 100vh;
+  width: 100vw;
   &.-overlayed {
     height: 100%;
     overflow: hidden;
@@ -9,11 +11,17 @@ body {
   button {
     outline: none !important;
   }
+  #root {
+    @include size(inherit);
+  }
+  .App {
+    @include size(inherit);
+  }
 }
 
-.App{
-  .svg-icon {
-    @include size(400px);
-    fill: green;
-  }
+.main-body {
+  @include size(100%);
+  display: flex;
+  align-items: flex-start;
+  padding: 130px 20px 20px;
 }

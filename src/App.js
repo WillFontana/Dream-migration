@@ -1,11 +1,13 @@
 import React from 'react';
-import { MdAddCircle } from 'react-icons/md'
-
+import Header from './components/Header';
+import User from './components/User';
 function App() {
   return (
     <div className="App">
-      sadasdasdas
-      <MdAddCircle className="svg-icon" />
+      <Header />
+      <div className="main-body">
+        <User />
+      </div>
     </div>
   );
 }

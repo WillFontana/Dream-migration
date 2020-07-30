@@ -1,0 +1,17 @@
+.outline-link {
+  @include size(auto);
+  @include radius(6px);
+  @include transition;
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid $primary-color;
+  padding: 5px;
+  padding-bottom: 5px;
+  color: $primary-color;
+  background-color: $white;
+  font-weight: 700;
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+  }
+}
