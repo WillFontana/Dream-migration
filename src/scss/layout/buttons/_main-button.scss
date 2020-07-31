@@ -9,10 +9,10 @@
   line-height: $button-base-height;
   padding-right: $button-base-pad-x;
   padding-left: $button-base-pad-x;
-  background-color: $button-base-bg;
+  background-color: $secondary-color;
   outline: none;
   user-select: none;
-  border: 2px solid $button-base-bg;
+  border: 2px solid $secondary-color;
   cursor: pointer;
 
   // texto do botão
@@ -34,8 +34,8 @@
 
   // hover
   &:hover {
-    border-color: $primary-color-lighten;
-    background-color: $primary-color-lighten;
+    border-color: $secondary-color-lighten;
+    background-color: $secondary-color-lighten;
     .text {
       color: $white;
     }
@@ -47,15 +47,15 @@
   // ativo
   &:active {
     @include transition(0s);
-    border-color: $primary-color;
-    background-color: $primary-color;
+    border-color: $secondary-color-darken;
+    background-color: $secondary-color-darken;
     color: $white;
   }
 
   // botão danger
   &.-primary {
-    border-color: $primary-color;
-    background-color: $primary-color;
+    border-color: $secondary-color-darken;
+    background-color: $secondary-color-darken;
     .text {
       color: $white;
     }

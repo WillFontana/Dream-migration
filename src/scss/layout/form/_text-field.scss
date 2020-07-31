@@ -1,135 +1,63 @@
 .text-box {
+  @include size(100%, 45px);
   position: relative;
-  margin-bottom: 25px;
-  @include media-max(xl) {
-    margin: 0px;
-  }
   .input {
-    margin: 10px 0px;
+    @include size(100%, 45px);
+    @include radius;
+    padding: 0 12px;
     outline: none;
-    background: $label-color;
-    z-index: 2;
-    border: 2px solid $primary-color;
-    @include radius(3px);
-    padding: 15px;
-    width: 100%;
+    border: 2px solid rgba($secondary-color, 0.6);
     font-size: 16px;
-    color: $white;
+    color: $black-70;
+    background-color: transparent;
     font-family: $font-base;
-    @include media-max(xl) {
-      margin: 0px 0px 10px;
+    z-index: 2;
+    position: relative;
+    &:focus,
+    &.-used,
+    &.-force-used,
+    &.-error,
+    &.-validate {
+      + .label {
+        top: -10px;
+        bottom: 100%;
+        left: 0px !important;
+        padding: 0;
+        z-index: 1;
+        .text {
+          font-size: 11px;
+        }
+      }
+    }
+    &:focus {
+      border-color: darken(rgba($secondary-color, 0.6), 5%);
+    }
+    &.-used {
+      :not(:focus) {
+        border-color: darken(rgba($secondary-color, 0.6), 10%);
+      }
+    }
+    &.-textarea {
+      @include customScroll(1px, 0px, $secondary-color, $ease-white);
+      min-height: 70px;
+      padding: 11.5px 12px;
     }
   }
   .label {
-    top: 2px;
-    bottom: 2px;
-    margin: auto;
-    padding: 0px 6px;
-    left: 15px;
-    position: absolute;
+    @include size(auto, 2px);
+    @include transition;
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 1;
-    @include transition(0.1s);
-    &.-whats {
-      position: relative;
-      left: unset;
-      right: unset;
-      top: unset;
-      bottom: unset;
-      justify-content: flex-start;
-      align-items: center;
-      .svg-icon {
-        fill: $primary-color;
-        margin: 0;
-        position: unset;
-        display: block;
-        @include size(18px);
-      }
-      .switch-whats {
-        .svg-icon {
-          position: absolute;
-          right: 15px;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-          @include size(20px);
-        }
-      }
-      .text {
-        margin-left: 10px;
-        text-transform: unset;
-      }
-    }
-
-    .text {
-      z-index: 1;
-      text-transform: uppercase;
-    }
-  }
-  .svg-icon {
     position: absolute;
-    right: 20px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    @include size(24px);
-    fill: $primary-color;
-  }
-  .input:focus {
-    border-color: $primary-color-lighten;
-  }
-  .input:focus + .label {
-    top: -31px;
-    left: -5px;
-    padding: 0px 6px;
-    bottom: unset;
-    margin: unset;
-    &::before {
-      height: 7px;
-    }
-    @include media-max(md) {
-    }
+    left: 13px;
+    text-align: center;
+    top: calc(45px / 2);
+    z-index: 0;
     .text {
-      font-size: 12px;
-      z-index: 1;
-      font-weight: 700;
-      text-transform: unset;
-    }
-  }
-  .input {
-    &.-used {
-      &:focus {
-        border-color: $primary-color-lighten;
-      }
-      border-color: $primary-color-darken;
-      + .label {
-        top: -31px;
-        left: -5px;
-        padding: 0px 6px;
-        bottom: unset;
-        margin: unset;
-        .text {
-          font-size: 12px;
-          z-index: 1;
-          font-weight: 700;
-        }
-      }
-    }
-    &.-error {
-      border-color: $brand-danger;
-      &:focus {
-        border-color: $brand-danger;
-      }
-      + .label {
-        .text {
-          color: $brand-danger;
-        }
-      }
-      ~ .svg-icon {
-        display: block;
-      }
+      @include transition;
+      font-size: 16px;
+      color: $black-70;
+      font-family: $font-base;
     }
   }
 }

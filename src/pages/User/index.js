@@ -8,6 +8,8 @@ import MaleDummy from '../../assets/dummy/male.png';
 import FemaleDummy from '../../assets/dummy/female.png';
 
 import api from '../../services/api';
+import Auth from '../../services/auth';
+
 import { useParams } from 'react-router-dom';
 
 export default function User() {
@@ -20,6 +22,7 @@ export default function User() {
 
   const [loading, setLoading] = useState(false);
 
+  const [authed, setAuthed] = useState(false);
 
   useEffect(() => {
     setError(false)
@@ -27,6 +30,7 @@ export default function User() {
     api.get(`?acao=retornaDadosUsuarioJSON&cdusuario=${id}`)
       .then(response => {
         response.data ? setUser(response.data.dados) : setError(true);
+        setAuthed(Auth);
       }).then(() => {
         setLoading(false);
       }).catch(err => {
@@ -34,25 +38,27 @@ export default function User() {
         setLoading(false);
         setError(true);
       });
-  }, [id]);
+  }, [authed, id]);
 
   return (
     <>
       <section className="profile-card">
         {loading &&
-          <><div className="main-card-loader">
-            <MdHourglassEmpty className="svg-icon" />
-            <p className="loader-text">
-              Carregando
+          <>
+            <div className="main-card-loader">
+              <MdHourglassEmpty className="svg-icon" />
+              <p className="loader-text">
+                Carregando
             </p>
-          </div></>}
+            </div></>}
         {error &&
-          <><div className="main-card-error">
-            <AiOutlineWarning className="svg-icon" />
-            <p className="text">
-              Não foi possível encontrar o usuário
+          <>
+            <div className="main-card-error">
+              <AiOutlineWarning className="svg-icon" />
+              <p className="text">
+                Não foi possível encontrar o usuário
           </p>
-          </div></>}
+            </div></>}
         {user &&
           <>
             <div className="card-info">

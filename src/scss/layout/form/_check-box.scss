@@ -1,80 +1,35 @@
-.check-box {
-  background-color: $label-color;
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding: 15px 40px;
-  margin-right: 20px;
+.switch-svg {
+  @include centerFlex;
   cursor: pointer;
-  .input-check {
+  .input {
     display: none;
-  }
-  .switch-svg {
-    .svg-icon {
-      position: absolute;
-      left: 10px;
-      bottom: 0;
-      top: 0;
-      margin: auto;
-      @include size(20px);
-      fill: $black-50;
-      &.-solid {
-        fill: $brand-success;
-        display: none;
-      }
-    }
-  }
-  .input-check:checked {
-    ~ .switch-svg {
-      .svg-icon {
-        &.-solid {
-          display: block;
-        }
-        &.-outline {
+    &:checked {
+      ~ .svg-icon {
+        fill: $secondary-color;
+        &.-uncheck {
           display: none;
         }
+        &.-check {
+          display: block;
+        }
+      }
+      ~ .text {
+        color: $secondary-color;
       }
     }
-    ~ .text {
-      color: $primary-color;
+  }
+  .svg-icon {
+    @include size(18px);
+    @include transition;
+    fill: $black-60;
+    &.-check {
+      display: none;
+    }
+    + .text {
+      margin-left: 10px;
     }
   }
   .text {
-    color: $black-50;
-  }
-  &:hover {
-    border-color: $primary-color;
-  }
-  &.-error {
-    border-color: $brand-danger;
-    .switch-svg {
-      .svg-icon {
-        fill: $brand-danger;
-      }
-    }
-  }
-}
-.input-check {
-  display: none;
-}
-.switch-whats {
-  .svg-icon {
-    @include transition;
-    &.-solid {
-      opacity: 0;
-    }
-  }
-}
-.input-check:checked {
-  ~ .switch-whats {
-    .svg-icon {
-      @include transition;
-      &.-solid {
-        opacity: 1;
-      }
-      &.-outline {
-        opacity: 0;
-      }
-    }
+    user-select: none;
   }
 }

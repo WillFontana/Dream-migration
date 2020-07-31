@@ -1,47 +1,78 @@
 .warning-box {
-  padding: 15px;
-  display: flex;
-  background-color: #ccc;
-  @include radius(4px);
-  position: relative;
-  margin-bottom: 25px;
+  @include size(100%, auto);
   @include transition;
+  padding: 15px 15px 18px;
+  display: flex;
+  background-color: $white;
+  position: fixed;
+  top: 0;
+  margin-bottom: 25px;
   overflow: hidden;
+  border-top: $primary-color;
+  z-index: 26;
   &::before {
     content: "";
     height: 3px;
     position: absolute;
     left: 0;
     bottom: 0;
-    background-color: #ffffff86;
+    background-color: rgba($primary-color, 0.4);
     animation: loading-warning 6s linear infinite;
   }
   .svg-icon {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    right: 15px;
     @include size(20px);
-    fill: $white;
+    stroke: $primary-color;
     cursor: pointer;
+    + .text {
+      margin-left: 10px;
+      margin-top: 2px;
+    }
   }
   &.-error {
-    background-color: $brand-danger;
+    .text,
+    .svg-icon {
+      color: $brand-danger;
+      stroke: $brand-danger;
+    }
+    &::before {
+      background-color: rgba($brand-danger, 0.4);
+    }
   }
   &.-success {
-    background-color: $brand-success;
+    .text,
+    .svg-icon {
+      color: $brand-success;
+      stroke: $brand-success;
+    }
+    &::before {
+      background-color: rgba($brand-success, 0.4);
+    }
   }
-  &.-danger {
-    background-color: $brand-warning;
+  &.-warning {
+    .text,
+    .svg-icon {
+      color: darken($brand-warning, 5%);
+      stroke: $brand-warning;
+    }
+    &::before {
+      background-color: rgba($brand-warning, 0.4);
+    }
   }
   &.-info {
-    background-color: $brand-info;
+    .text,
+    .svg-icon {
+      color: darken($brand-info, 5%);
+      stroke: darken($brand-info, 5%);
+    }
+    &::before {
+      background-color: rgba($brand-info, 0.4);
+    }
   }
   &.-fading {
-    opacity: 0;
-    margin-bottom: 0px;
-    padding: 0px;
+    top: -100%;
+    &::before {
+      animation: none;
+    }
   }
   &.-gone {
     display: none;

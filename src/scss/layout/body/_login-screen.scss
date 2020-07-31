@@ -1,0 +1,41 @@
+.login-screen {
+  @include size(100vw, 100vh);
+  @include centerFlex;
+  position: relative;
+  &::before {
+    content: "";
+    @include size(100%, 55%);
+    @include centerX;
+    bottom: 0;
+    background-color: rgba($secondary-color, 0.6);
+  }
+  &::after {
+    content: "";
+    @include size(100%, 45%);
+    @include centerX;
+    bottom: 0;
+    background-color: rgba($secondary-color, 0.6);
+  }
+  .component-container {
+    @include size(30%, auto);
+    @include customScroll(0px, 0px, transparent, transparent);
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: $white;
+    position: relative;
+    z-index: 4;
+    border: 2px solid rgba($secondary-color, 0.6);
+    max-height: 80%;
+    .container-header {
+      @include size(100%, 70px);
+      @include centerFlex;
+      text-align: center;
+      border-bottom: 1px solid rgba($secondary-color, 0.6);
+      position: sticky;
+      top: 0;
+    }
+    .container-body {
+      padding: 32px;
+    }
+  }
+}
